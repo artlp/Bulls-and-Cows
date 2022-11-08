@@ -1,8 +1,8 @@
 const playzone = document.querySelector('.playzone');
 const btnPlay = document.querySelector('.newgame');
 const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-const hints = document.querySelector('.hints');
 const output = document.querySelector('.output');
+const digitsDiv = document.querySelector('.digits')
 let gameCombination = [];
 let n = 4;
 let input = [];
@@ -12,7 +12,7 @@ let bulls =  0;
 function newGame() {
     shuffle(numbers);
     gameCombination = numbers.slice(0, n);
-    playzone.innerText = gameCombination.join(' ');
+    console.log(gameCombination.join(' '));
 }
 
 btnPlay.onclick = newGame;
@@ -31,6 +31,13 @@ function shuffle(array) {
     }
 }
 
+for (i = 1; i <= n; i++) {
+    let inpNum = document.createElement("input");
+    inpNum.setAttribute("maxlength", `1`)
+    inpNum.setAttribute("name", `digit${i}`)
+    digitsDiv.appendChild(inpNum);
+}
+
 // Listen on the 'input' event inside the .digits area:
 document.querySelector(".digits").addEventListener("input", function (e) {
     // Exclude non-numeric characters from input:
@@ -42,10 +49,10 @@ document.querySelector(".digits").addEventListener("input", function (e) {
         e.target.nextElementSibling.focus();
 
     }
-    if (e.target.name === "digit4") {
+    if (e.target.name === `digit${n}`) {
         input.push(+e.target.value);
         e.target.blur();
-        document.querySelector(".log").innerText = input.join(' ');
+        // document.querySelector(".log").innerText = input.join(' ');
         document.querySelectorAll('input').forEach((e) => {
         e.value = '';
     });
@@ -72,7 +79,7 @@ function checkInput() {
             console.log("nothing");
         }
     })
-    output.innerText += (`${input.join(' ')}, cows: ${cows}; bulls: ${bulls} 
+    output.innerText += (`${input.join(' ')} - cows: ${cows}; bulls: ${bulls} 
     `);
 
     input = [];
