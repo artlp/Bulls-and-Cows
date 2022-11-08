@@ -35,6 +35,7 @@ for (i = 1; i <= n; i++) {
     let inpNum = document.createElement("input");
     inpNum.setAttribute("maxlength", `1`)
     inpNum.setAttribute("name", `digit${i}`)
+    inpNum.setAttribute("type", `number`)
     digitsDiv.appendChild(inpNum);
 }
 

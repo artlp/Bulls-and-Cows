@@ -140,6 +140,7 @@ h1:hover {
 .output {
     font-size: 1.2rem;
     color: #3b3130;
+    max-height: 500px;
 }
 
 svg {
