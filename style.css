@@ -1,0 +1,13 @@
+input {
+    font-size: 2rem;
+    width: 1.5rem;
+    text-align: center;
+  }
+  input:focus {
+    border: 2px solid yellowgreen;
+    outline: none;
+  }
+
+  .newgame:hover {
+    cursor: pointer;
+  }
