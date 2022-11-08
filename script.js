@@ -2,21 +2,35 @@ const playzone = document.querySelector('.playzone');
 const btnPlay = document.querySelector('.newgame');
 const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 const output = document.querySelector('.output');
-const digitsDiv = document.querySelector('.digits')
+const digitsDiv = document.querySelector('.digits');
+const btnsettings = document.querySelector('svg');
+const settings = document.querySelector('.hidewrapper');
+const settingInp = document.querySelector('#inpsetting');
+const logWrap = document.querySelector('.logwrapper');
 let gameCombination = [];
-let n = 4;
+let n = +settingInp.value;
 let input = [];
 let cows = 0;
-let bulls =  0;
+let bulls = 0;
+let inpNum = null;
 
 function newGame() {
+    generateInput(n);
+    inpNum.forEach;
+    output.innerHTML = '';
+    logWrap.classList.remove("hidden");
     shuffle(numbers);
+    btnPlay.innerText = 'RESTART'
     gameCombination = numbers.slice(0, n);
     console.log(gameCombination.join(' '));
 }
 
 btnPlay.onclick = newGame;
 
+btnsettings.addEventListener('click', () => {
+    settings.classList.toggle("hidden");
+    settingInp.disabled = false;
+});
 
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -30,13 +44,23 @@ function shuffle(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
+document.querySelector('.settingsapply').addEventListener('click', () => {
+    n = +settingInp.value;
+    settings.classList.add("hidden");
+    newGame();
 
+});
+
+
+function generateInput(n) { 
+    digitsDiv.innerHTML = '';
 for (i = 1; i <= n; i++) {
-    let inpNum = document.createElement("input");
-    inpNum.setAttribute("maxlength", `1`)
-    inpNum.setAttribute("name", `digit${i}`)
-    inpNum.setAttribute("type", `number`)
+    inpNum = document.createElement("input");
+    inpNum.setAttribute("maxlength", `1`);
+    inpNum.setAttribute("name", `digit${i}`);
+    inpNum.setAttribute("type", `number`);
     digitsDiv.appendChild(inpNum);
+}
 }
 
 // Listen on the 'input' event inside the .digits area:
@@ -55,33 +79,35 @@ document.querySelector(".digits").addEventListener("input", function (e) {
         e.target.blur();
         // document.querySelector(".log").innerText = input.join(' ');
         document.querySelectorAll('input').forEach((e) => {
-        e.value = '';
-    });
-    checkInput();
-}
+            e.value = '';
+        });
+        checkInput();
+    }
 
 });
 
 function checkInput() {
-    console.log(input, gameCombination);
     cows = 0;
     bulls = 0;
-    gameCombination.forEach((e,i,arr)=> {
+    gameCombination.forEach((e, i, arr) => {
 
         if (input.includes(e)) {
             if (e === input[i]) {
-                console.log("BULL");
                 bulls++;
             } else {
-                console.log("COW");
                 cows++;
             }
-        } else {
-            console.log("nothing");
-        }
-    })
-    output.innerText += (`${input.join(' ')} - cows: ${cows}; bulls: ${bulls} 
+        } else {}
+    });
+    output.innerText += (`${input.join(' ')} - cows: ${cows}, bulls: ${bulls}.
     `);
-
+    if (bulls === 4) {
+        document.querySelectorAll('h1')[0].innerText = "WINNER";
+        document.querySelectorAll('h1')[1].innerText = "WINNER";
+        output.innerHTML += `<div class="win">YOU GUESSED THE NUMBER</div>`
+        document.querySelectorAll('input').forEach((e) => {
+            e.disabled = true;
+        });
+    }
     input = [];
 }
