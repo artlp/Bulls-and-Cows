@@ -49,8 +49,8 @@
     background-position: left;
     background-size: cover;
     width: 100vw;
-    min-height:100%;
-    height: 120vh;
+    min-height: var(--original-viewport-height);
+    height: 100%;
     position: absolute;
     z-index: -2;
     box-sizing: border-box;
