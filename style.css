@@ -44,10 +44,10 @@
 }
 .bg {
     padding: 0;
-    background-image: url(./bg.jpg);
-    background-repeat: no-repeat;
+    background: url(./bg.jpg) no-repeat left top fixed;
+    /* background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: left;
+    background-position: left; */
     background-size: cover;
     width: 100vw;
     min-height:100%;
