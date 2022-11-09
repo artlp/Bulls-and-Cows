@@ -101,7 +101,7 @@ function checkInput() {
     });
     output.innerText += (`${input.join(' ')} - cows: ${cows}, bulls: ${bulls}.
     `);
-    if (bulls === 4) {
+    if (bulls === n) {
         document.querySelectorAll('h1')[0].innerText = "WINNER";
         document.querySelectorAll('h1')[1].innerText = "WINNER";
         output.innerHTML += `<div class="win">YOU GUESSED THE NUMBER</div>`
@@ -109,5 +109,6 @@ function checkInput() {
             e.disabled = true;
         });
     }
+    // console.log(input);
     input = [];
 }
