@@ -49,7 +49,7 @@ body {
     margin: 0;
     background-image: url(./bg.jpg);
     width: 100vw;
-    height: 100%;
+    height: auto;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: left;
