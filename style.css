@@ -50,13 +50,20 @@ body {
     overflow: hidden;
     padding: 0;
     width: 100vw;
+
+}
+.bg {
+    box-sizing: border-box;
     background: url(./bg.jpg);
     background-attachment: fixed;
     background-position: left top; 
     background-repeat: no-repeat;
     background-size: cover;
+    width: 100%;
+    height: calc(100vh - calc(100vh - 100%));
+    z-index: -2;
+    position:absolute;
 }
-
 input {
     border: 4px solid transparent;
     font-size: 2rem;
@@ -247,5 +254,6 @@ a {
 a:hover {
     color: rgb(220, 238, 255);
     rotate: 1deg;
-    text-decoration: underline dashed rgb(255, 255, 255) 1px;
+    -webkit-text-decoration: underline dashed rgb(255, 255, 255) 1px;
+            text-decoration: underline dashed rgb(255, 255, 255) 1px;
 }
