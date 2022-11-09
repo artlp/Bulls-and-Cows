@@ -44,22 +44,26 @@
 }
 .bg {
     padding: 0;
-    background: url(./bg.jpg) no-repeat left top fixed;
-    /* background-repeat: no-repeat;
+    background: url(./bg.jpg);
     background-attachment: fixed;
-    background-position: left; */
+    background-position: left;
     background-size: cover;
     width: 100vw;
     min-height:100%;
+    height: 120vh;
     position: absolute;
     z-index: -2;
+    box-sizing: border-box;
+    overflow:hidden;
+
 }
+
 body {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
     width: 100vw;
-    height: 100%;
+    overflow: hidden;
 }
 
 input {
