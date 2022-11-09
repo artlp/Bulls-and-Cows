@@ -44,18 +44,20 @@
 }
 .bg {
     padding: 0;
-    background: url(./bg.jpg) no-repeat; 
-    background-attachment: fixed;
-    background-position: left;
+    background: url(./bg.jpg) no-repeat fixed; 
+    /* background-attachment: fixed; */
+    /* background-position: left; */
     background-size: cover;
     width: 100vw;
     min-height: 100%;
-    height: auto;
+    /* height: auto; */
     position: absolute;
     z-index: -2;
     box-sizing: border-box;
     overflow:hidden;
     background-clip: padding-box;
+    background-size: 150%;
+    background-position-x: 50%, center; 
 }
 
 body {
