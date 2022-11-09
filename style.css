@@ -42,18 +42,6 @@
         -ms-user-select: none;
             user-select: none;
 }
-.bg {
-    background: url(./bg.jpg);
-    background-attachment: fixed;
-    background-position: left top; 
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    padding: 0;
-    position:absolute;
-    width: 100vw;
-    z-index: -2;
-}
 
 body {
     box-sizing: border-box;
@@ -62,6 +50,11 @@ body {
     overflow: hidden;
     padding: 0;
     width: 100vw;
+    background: url(./bg.jpg);
+    background-attachment: fixed;
+    background-position: left top; 
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 input {
